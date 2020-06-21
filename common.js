@@ -50,7 +50,6 @@ class RunTimer {
         this.id = generateShortId();
         this.callback = callback;
         this.intervalTime = intervalTime;
-        this.startTime = this.getTime();
         this.timer = 0;
         this.startTimer();
     }
@@ -59,15 +58,13 @@ class RunTimer {
         return new Date().getTime();
     }
 
-    timeout(diffTime, curTime) {
-        const runtime = this.intervalTime - diffTime;
+    timeout(diffTime, beforeTime) {
+        const waitTime = this.intervalTime - diffTime;
         this.timer = setTimeout(() => {
-            const tmp = curTime;
             this.callback();
-            curTime = this.getTime();
-            diffTime = curTime - tmp;
-            this.timeout(diffTime, curTime);
-        }, runtime);
+            const afterTime = this.getTime();
+            this.timeout(afterTime - beforeTime - waitTime, afterTime);
+        }, waitTime);
     }
 
     clearTimer() {
@@ -75,7 +72,7 @@ class RunTimer {
     }
 
     startTimer() {
-        this.timeout(0, this.startTime);
+        this.timeout(0, this.getTime());
     }
 }
 
