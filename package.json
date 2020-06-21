@@ -1,6 +1,6 @@
 {
   "name": "wmc-util",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "some util funtions to use in many projects",
   "main": "index.js",
   "scripts": {
