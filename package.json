@@ -1,0 +1,22 @@
+{
+  "name": "wmc-util",
+  "version": "1.0.1",
+  "description": "some util funtions to use in many projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:wmc3721/wmc-util.git"
+  },
+  "keywords": [
+    "util"
+  ],
+  "author": "hasaki-wmc",
+  "license": "MIT",
+  "dependencies": {
+    "moment": "^2.27.0",
+    "shortid": "^2.2.15"
+  }
+}
